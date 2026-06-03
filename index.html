@@ -1,73 +1,109 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DHG Tizon Engenharia & Construção Civil. Construtora e incorporadora de imóveis. Nossa missão é realizar sonhos!">
+    <meta name="description" content="DHG Tizon Engenharia & Construção Civil. Construtora e incorporadora de imóveis de alto padrão em Ponta Grossa - PR. Nossa missão é realizar sonhos!">
     <title>DHG Tizon | Engenharia & Construção Civil</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet principal -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Progress Bar de Leitura -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="scrollProgress"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container nav-content">
             <div class="brand">
-                <span class="logo-text">DHG<span class="highlight">TIZON</span></span>
+                <a href="#home" aria-label="DHG Tizon Home">
+                    <span class="logo-text">DHG<span class="highlight">TIZON</span></span>
+                </a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#portfolio">Obras Entregues</a></li>
-                <li><a href="#contact">Contato</a></li>
+            
+            <!-- Hamburger Menu Button para Mobile -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link-item active">Início</a></li>
+                <li><a href="#about" class="nav-link-item">Sobre</a></li>
+                <li><a href="#services" class="nav-link-item">Serviços</a></li>
+                <li><a href="#portfolio" class="nav-link-item">Obras Entregues</a></li>
+                <li><a href="#contact" class="nav-link-item">Contato</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header id="home" class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1 class="reveal-text">Nossa missão é <br><span class="highlight">realizar sonhos!</span></h1>
-            <p class="reveal-fade">Excelência em Construção Civil e Incorporação de Imóveis.</p>
-            <div class="hero-actions reveal-fade">
-                <a href="#portfolio" class="btn btn-primary">Ver Obras</a>
-                <a href="#contact" class="btn btn-outline">Fale Conosco</a>
+            <div class="hero-text-wrapper">
+                <span class="hero-badge">Incorporação & Construção Civil</span>
+                <h1>Nossa missão é <br><span class="highlight">realizar sonhos!</span></h1>
+                <p>Excelência em Construção Civil e Incorporação de Imóveis com acabamento de alto padrão.</p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary btn-magnetic">
+                        <span>Ver Obras</span>
+                        <i class="fa-solid fa-arrow-right animate-arrow"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline btn-magnetic">
+                        <span>Fale Conosco</span>
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="mouse-wheel"></span>
+            <span class="scroll-text">Explore o Extraordinário</span>
         </div>
     </header>
 
     <!-- About Section -->
     <section id="about" class="about section-padding">
         <div class="container about-grid">
-            <div class="about-text fade-in-section">
+            <div class="about-text scroll-reveal" data-animation="slide-right">
                 <div class="section-badge">Sobre Nós</div>
                 <h2>A Sua Construtora de Confiança</h2>
-                <p>A <strong>DHG Tizon Engenharia & Construção Civil</strong> é referência em construir não apenas estruturas, mas verdadeiros lares. Aliamos técnicas modernas, materiais de alto padrão e uma equipe dedicada para entregar projetos com perfeição.</p>
-                <p>Com sede em Ponta Grossa - PR, nosso foco está na incorporação e construção de imóveis que superam as expectativas de nossos clientes. Cada projeto é pensado para proporcionar conforto, segurança e estética incomparável.</p>
+                <p class="lead-text">A <strong>DHG Tizon Engenharia & Construção Civil</strong> é referência em construir não apenas estruturas físicas, mas verdadeiros lares de alto padrão.</p>
+                <p>Aliamos técnicas modernas de engenharia, materiais de excelente qualidade e uma equipe altamente dedicada para entregar projetos com perfeição, sofisticação e pontualidade rigorosa.</p>
+                <p>Com sede em Ponta Grossa - PR, nosso foco está na incorporação e construção de imóveis que superam as expectativas de nossos clientes. Cada projeto é milimetricamente pensado para proporcionar máximo conforto, segurança e estética incomparável.</p>
+                
                 <div class="stats">
                     <div class="stat-item">
-                        <h3>100%</h3>
-                        <p>Comprometimento</p>
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                        </div>
+                        <p class="stat-label">Comprometimento</p>
                     </div>
                     <div class="stat-item">
-                        <h3>+Alto</h3>
-                        <p>Padrão de Qualidade</p>
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number" data-target="10">0</span><span class="stat-suffix">/10</span>
+                        </div>
+                        <p class="stat-label">Padrão de Qualidade</p>
                     </div>
                 </div>
             </div>
-            <div class="about-image fade-in-section">
-                <!-- Parallax or stylized image wrapper -->
+            <div class="about-image scroll-reveal" data-animation="slide-left">
                 <div class="img-wrapper">
-                    <img src="./sobre_nos.jpeg" alt="Residência Moderna construída pela DHG Tizon" />
-                    <div class="img-overlay-box">Engenharia de Ponta</div>
+                    <img src="./sobre_nos.jpeg" alt="Residência Moderna construída pela DHG Tizon" loading="lazy" />
+                    <div class="img-overlay-box">
+                        <span class="overlay-box-title">Engenharia de Ponta</span>
+                        <span class="overlay-box-sub">Do projeto à entrega das chaves</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,24 +111,48 @@
 
     <!-- Services Section -->
     <section id="services" class="services section-padding bg-dark">
-        <div class="container text-center fade-in-section">
-            <div class="section-badge dark-badge">O que fazemos</div>
-            <h2>Nossos Serviços</h2>
+        <div class="container">
+            <div class="text-center header-margin scroll-reveal" data-animation="fade-in">
+                <div class="section-badge dark-badge">O que fazemos</div>
+                <h2>Nossos Serviços</h2>
+                <p class="section-subtitle">Soluções completas em engenharia civil com foco em inovação, excelência e processos controlados.</p>
+            </div>
+            
             <div class="service-cards">
-                <div class="card hover-up">
-                    <i class="fa-solid fa-house-chimney card-icon"></i>
+                <div class="card hover-up scroll-reveal" data-animation="slide-up">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <i class="fa-solid fa-house-chimney card-icon"></i>
+                    </div>
                     <h3>Construção Residencial</h3>
-                    <p>Projetos de casas modernas e de alto padrão, garantindo conforto e sofisticação em cada detalhe.</p>
+                    <p>Projetos de casas modernas e de alto padrão, garantindo conforto, inteligência espacial e sofisticação em cada detalhe planejado.</p>
+                    <div class="card-arrow">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
                 </div>
-                <div class="card hover-up">
-                    <i class="fa-solid fa-building card-icon"></i>
+                
+                <div class="card hover-up scroll-reveal" data-animation="slide-up" style="transition-delay: 0.15s;">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <i class="fa-solid fa-building card-icon"></i>
+                    </div>
                     <h3>Incorporação</h3>
-                    <p>Oportunidades únicas de negócios, desenvolvendo empreendimentos imobiliários com alta rentabilidade e segurança.</p>
+                    <p>Oportunidades únicas de negócios, desenvolvendo empreendimentos imobiliários de alto potencial com rentabilidade sólida e segurança jurídica.</p>
+                    <div class="card-arrow">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
                 </div>
-                <div class="card hover-up">
-                    <i class="fa-solid fa-helmet-safety card-icon"></i>
+                
+                <div class="card hover-up scroll-reveal" data-animation="slide-up" style="transition-delay: 0.3s;">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <i class="fa-solid fa-helmet-safety card-icon"></i>
+                    </div>
                     <h3>Gestão de Obras</h3>
-                    <p>Acompanhamento rigoroso de todas as etapas da obra, com profissionais qualificados e transparência total.</p>
+                    <p>Acompanhamento rigoroso e técnico de todas as etapas de execução, com profissionais qualificados, cronograma preciso e transparência financeira.</p>
+                    <div class="card-arrow">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,81 +160,117 @@
 
     <!-- Portfolio / Social Proof Section -->
     <section id="portfolio" class="portfolio section-padding">
-        <div class="container text-center fade-in-section">
-            <div class="section-badge">Prova Social</div>
-            <h2>Obras Realizadas</h2>
-            <p class="subtitle">Confira alguns de nossos projetos entregues e entenda o padrão DHG Tizon.</p>
+        <div class="container">
+            <div class="text-center header-margin scroll-reveal" data-animation="fade-in">
+                <div class="section-badge">Prova Social</div>
+                <h2>Obras Realizadas</h2>
+                <p class="section-subtitle">Confira a transformação real de nossos projetos entregues e comprove o padrão superior de acabamento DHG Tizon.</p>
+            </div>
             
             <!-- Antes e Depois Section -->
-            <div class="before-after-section">
-                <h3 class="subsection-title">Antes e Depois das Nossas Obras</h3>
+            <div class="before-after-section scroll-reveal" data-animation="slide-up">
+                <h3 class="subsection-title">
+                    <i class="fa-solid fa-arrows-left-right title-icon"></i>
+                    Antes e Depois das Nossas Obras
+                </h3>
                 <div class="comparison-grid">
+                    
                     <!-- Project 1 -->
                     <div class="comparison-row">
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-right">
                             <span class="badge badge-antes">Antes</span>
-                            <img src="./antes_1.png" alt="Obra Antes 1">
+                            <div class="img-container">
+                                <img src="./antes_1.png" alt="Obra Antes 1" loading="lazy">
+                            </div>
                         </div>
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-left">
                             <span class="badge badge-depois">Depois</span>
-                            <img src="./depois_1.png" alt="Obra Depois 1">
+                            <div class="img-container">
+                                <img src="./depois_1.png" alt="Obra Depois 1" loading="lazy">
+                            </div>
                         </div>
                     </div>
+                    
                     <!-- Project 2 -->
                     <div class="comparison-row">
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-right">
                             <span class="badge badge-antes">Antes</span>
-                            <img src="./antes_2.png" alt="Obra Antes 2">
+                            <div class="img-container">
+                                <img src="./antes_2.png" alt="Obra Antes 2" loading="lazy">
+                            </div>
                         </div>
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-left">
                             <span class="badge badge-depois">Depois</span>
-                            <img src="./depois_2.png" alt="Obra Depois 2">
+                            <div class="img-container">
+                                <img src="./depois_2.png" alt="Obra Depois 2" loading="lazy">
+                            </div>
                         </div>
                     </div>
+                    
                     <!-- Project 3 -->
                     <div class="comparison-row">
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-right">
                             <span class="badge badge-antes">Antes</span>
-                            <img src="./antes_3.png" alt="Obra Antes 3">
+                            <div class="img-container">
+                                <img src="./antes_3.png" alt="Obra Antes 3" loading="lazy">
+                            </div>
                         </div>
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-left">
                             <span class="badge badge-depois">Depois</span>
-                            <img src="./depois_3.png" alt="Obra Depois 3">
+                            <div class="img-container">
+                                <img src="./depois_3.png" alt="Obra Depois 3" loading="lazy">
+                            </div>
                         </div>
                     </div>
+                    
                     <!-- Project 4 -->
                     <div class="comparison-row">
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-right">
                             <span class="badge badge-antes">Antes</span>
-                            <img src="./antes_4.png" alt="Obra Antes 4">
+                            <div class="img-container">
+                                <img src="./antes_4.png" alt="Obra Antes 4" loading="lazy">
+                            </div>
                         </div>
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-left">
                             <span class="badge badge-depois">Depois</span>
-                            <img src="./depois_4.png" alt="Obra Depois 4">
+                            <div class="img-container">
+                                <img src="./depois_4.png" alt="Obra Depois 4" loading="lazy">
+                            </div>
                         </div>
                     </div>
+                    
                     <!-- Project 5 -->
                     <div class="comparison-row">
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-right">
                             <span class="badge badge-antes">Antes</span>
-                            <img src="./antes_5.png" alt="Obra Antes 5">
+                            <div class="img-container">
+                                <img src="./antes_5.png" alt="Obra Antes 5" loading="lazy">
+                            </div>
                         </div>
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-left">
                             <span class="badge badge-depois">Depois</span>
-                            <img src="./depois_5.png" alt="Obra Depois 5">
+                            <div class="img-container">
+                                <img src="./depois_5.png" alt="Obra Depois 5" loading="lazy">
+                            </div>
                         </div>
                     </div>
+                    
                     <!-- Project 6 -->
                     <div class="comparison-row">
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-right">
                             <span class="badge badge-antes">Antes</span>
-                            <img src="./antes_6.png" alt="Obra Antes 6">
+                            <div class="img-container">
+                                <img src="./antes_6.png" alt="Obra Antes 6" loading="lazy">
+                            </div>
                         </div>
-                        <div class="comparison-item hover-up">
+                        <div class="comparison-item hover-up scroll-reveal" data-animation="slide-left">
                             <span class="badge badge-depois">Depois</span>
-                            <img src="./depois_6.png" alt="Obra Depois 6">
+                            <div class="img-container">
+                                <img src="./depois_6.png" alt="Obra Depois 6" loading="lazy">
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -183,32 +279,61 @@
     <!-- Contact & Footer -->
     <footer id="contact" class="footer">
         <div class="container footer-grid">
-            <div class="footer-info fade-in-section">
+            <div class="footer-info scroll-reveal" data-animation="slide-up">
                 <h3>DHG<span>TIZON</span></h3>
-                <p>Nossa missão é realizar sonhos através de obras sólidas e arquitetura de vanguarda.</p>
+                <p>Nossa missão é realizar sonhos através de obras sólidas, engenharia de alta performance e arquitetura de vanguarda.</p>
                 <div class="socials">
-                    <a href="https://www.instagram.com/dhgtizon/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/dhgtizon/" target="_blank" rel="noopener" aria-label="Siga a DHG Tizon no Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
                 </div>
             </div>
             
-            <div class="footer-contact fade-in-section delay-1">
+            <div class="footer-contact scroll-reveal" data-animation="slide-up" style="transition-delay: 0.15s;">
                 <h4>Fale Conosco</h4>
-                <div class="socials">
-                    <a href="https://maps.google.com/?q=R.+Marcílio+Dias,+1205+-+Nova+Rússia,+Ponta+Grossa+-+PR,+84071-130" target="_blank" title="Localização na Sede"><i class="fa-solid fa-location-dot"></i></a>
-                    <a href="https://wa.me/5542999164041" target="_blank" title="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <p class="footer-contact-desc">Estamos prontos para atender você. Entre em contato para agendar uma reunião ou visitar nossas obras.</p>
+                <div class="footer-actions-container">
+                    <a href="https://maps.google.com/?q=R.+Marcílio+Dias,+1205+-+Nova+Rússia,+Ponta+Grossa+-+PR,+84071-130" target="_blank" rel="noopener" class="contact-link-item" title="Localização na Sede">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-link-text">
+                            <span class="contact-label">Sede Administrativa</span>
+                            <span class="contact-value">Rua Marcílio Dias, 1205 - Ponta Grossa - PR</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://wa.me/5542999164041" target="_blank" rel="noopener" class="contact-link-item" title="Falar no WhatsApp">
+                        <div class="contact-icon-box whatsapp-box">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-link-text">
+                            <span class="contact-label">WhatsApp Atendimento</span>
+                            <span class="contact-value">(42) 99916-4041</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>&copy; 2026 DHG Tizon Engenharia & Construção Civil. Todos os direitos reservados.</p>
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 DHG Tizon Engenharia & Construção Civil. Todos os direitos reservados.</p>
+                <p class="developer-credit">Projetado com os mais altos padrões de experiência digital.</p>
+            </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5542999164041" target="_blank" class="floating-whatsapp">
+    <a href="https://wa.me/5542999164041" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Fale conosco pelo WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale Conosco!</span>
     </a>
 
+    <!-- GSAP CDN para animações de altíssimo padrão -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Script principal -->
     <script src="script.js"></script>
 </body>
 </html>
